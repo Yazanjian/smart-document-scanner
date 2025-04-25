@@ -41,7 +41,6 @@ Before running the project, choose **one of the following options**:
    ```bash
     docker run -d -p 8003:8003 -v "$(pwd)/.env:/.env" llm-ocr
    ```
-This will handle all dependencies including Tesseract, Poppler, and Python libraries.
 
 ### Option 2: Manual Installation
 
@@ -80,13 +79,14 @@ Create a `.env` file in the project root and define the following keys:
 # LLM model to use (e.g., gpt-3.5-turbo, gpt-4, etc.)
 MODEL_NAME=gpt-3.5-turbo
 
-# LLM Temperature
-MODEL_TEMPERATURE=0
 
 # OpenAI API Key (or other LLM provider’s key)
 OPENAI_API_KEY=your_openai_api_key_here
 
 # ======= OPTIONAL: =======
+
+# LLM Temperature
+MODEL_TEMPERATURE=0
 
 # Select the env: dev, prod
 ENVIRONMENT=dev
