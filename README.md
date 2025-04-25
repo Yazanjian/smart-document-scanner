@@ -96,3 +96,14 @@ DEFAULT_LANGUAGE=en
 
 # Enable translation for the extracted text
 ENABLE_TRANSLATION=False
+```
+
+## Insomnia Collection
+For simplicity, I will add the curl for the insomnia API here, copy/paste it into insomnia to start calling the API
+```commandline
+curl --request POST \
+  --url http://127.0.0.1:8003/api/ocr \
+  --header 'Content-Type: multipart/form-data' \
+  --header 'User-Agent: insomnia/11.0.0' \
+  --form file=
+```
