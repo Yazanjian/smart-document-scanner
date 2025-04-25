@@ -1,4 +1,4 @@
-# LLM-Powered OCR
+# Smart Document Scanner
 
 This project allows you to extract useful data from **PDFs** or **images** using **OCR (Optical Character Recognition)** and **LLMs (Large Language Models)**. The OCR functionality is powered by **Tesseract**, while the LLM is used to structure the raw data into a **JSON response** that's useful for your application.
 
