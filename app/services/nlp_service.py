@@ -137,7 +137,7 @@ async def extract_json(extracted_text: str, doc_type: str) -> Any | None:
         response_language = app_settings.default_language
         enable_translation = app_settings.enable_translation
 
-        logger.debug(f"LANGAUGE: {response_language, enable_translation}")
+        logger.debug(f"LANGUAGE: {response_language, enable_translation}")
 
         # Prompt
         prompt = ChatPromptTemplate.from_messages(

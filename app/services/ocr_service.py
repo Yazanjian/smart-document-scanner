@@ -11,7 +11,7 @@ from io import BytesIO
 from app.services.nlp_service import LlmModel
 
 
-# Tesseract Approach
+# VLM Approach
 def preprocess_image(image: Image.Image) -> str:
     """Convert image to grayscale and apply thresholding for better OCR."""
     # Convert PIL Image to bytes

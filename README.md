@@ -1,4 +1,4 @@
-# Smart Document Scanner
+# Smart Document Scanner - VLM Approach
 
 This project allows you to extract useful data from **PDFs** or **images** using **LLMs (Large Language Models)**. With the power of **GPT-4o**, it can read visual inputs (images or PDFs), extract text, and structure it into a **JSON response** useful for your application.
 
@@ -106,6 +106,24 @@ curl --request POST \
   --form file=
 ```
 
+## Adding Support for New Document Types
+
+To support a new document type (e.g., contract, medical report, certificate  etc.), you only need to follow a single step:
+
+1. **Define a Pydantic Model**  
+   Add a new `Pydantic` class that represents the structure of your new document type inside the file:
+
+```python
+app/models/documents.py
+```
+
+**Example:**
+```python
+class MyNewDocumentType(DocumentDetails):
+    field1: Optional[str] = Field(None, description="your description goes here")
+    field2: Optional[str] = Field(None, description="your description goes here")
+    # Add more fields as needed
+```
 
 ## MIT License
 
