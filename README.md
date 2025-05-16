@@ -2,6 +2,8 @@
 
 This project allows you to extract useful data from **PDFs** or **images** using **OCR (Optical Character Recognition)** and **LLMs (Large Language Models)**. The OCR functionality is powered by **Tesseract**, while the LLM is used to structure the raw data into a **JSON response** that's useful for your application.
 
+> **Note:** If you prefer a more accurate and modern approach, consider switching to the `feature/vlm` branch. It uses **Visual Language Models (VLM)** powered by **GPT-4o**, offering significantly improved extraction quality for images and scanned documents.
+
 ---
 
 ## Features
