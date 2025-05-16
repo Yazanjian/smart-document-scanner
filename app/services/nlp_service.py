@@ -25,16 +25,25 @@ class LlmModel:
             if cls._instance is None:
                 logger.debug("Creating new LlmModel class")
                 cls._instance = super().__new__(cls)
-                cls._instance._model = ChatOpenAI(
+                cls._instance._text_model = ChatOpenAI(
                     api_key=app_settings.openai_api_key,
-                    model=app_settings.model_name,
-                    temperature=app_settings.model_temperature,
+                    model=app_settings.text_model_name,
+                    temperature=app_settings.text_model_temperature,
+                )
+                cls._instance._vision_model = ChatOpenAI(
+                    api_key=app_settings.openai_api_key,
+                    model=app_settings.vision_model_name,
+                    temperature=app_settings.vision_model_temperature,
                 )
             return cls._instance
 
     @property
-    def model(self):
-        return self._model
+    def text_model(self):
+        return self._text_model
+
+    @property
+    def vision_model(self):
+        return self._vision_model
 
 
 class ExtractedDocumentType(BaseModel):
@@ -69,7 +78,7 @@ def build_document_model_for_type(doc_type: str):
 async def extract_document_type(text: str) -> ErrorResponse | None | Any:
     try:
         llm_model = LlmModel()
-        model = llm_model.model
+        model = llm_model.text_model
         structured_model = model.with_structured_output(ExtractedDocumentType)
 
         supported_doc_types = get_document_type_names()
@@ -122,7 +131,7 @@ async def extract_json(extracted_text: str, doc_type: str) -> Any | None:
         DynamicDocument = build_document_model_for_type(doc_type)
 
         llm_model = LlmModel()
-        model = llm_model.model
+        model = llm_model.text_model
         structured_model = model.with_structured_output(DynamicDocument)
 
         response_language = app_settings.default_language

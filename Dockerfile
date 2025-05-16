@@ -4,7 +4,6 @@ FROM python:3.13-slim
 
 # Install Tesseract and Poppler (for PDF support)
 RUN apt-get update && apt-get install -y \
-    tesseract-ocr \
     poppler-utils \
     libgl1-mesa-glx \
     && rm -rf /var/lib/apt/lists/*

@@ -1,15 +1,15 @@
 # Smart Document Scanner
 
-This project allows you to extract useful data from **PDFs** or **images** using **OCR (Optical Character Recognition)** and **LLMs (Large Language Models)**. The OCR functionality is powered by **Tesseract**, while the LLM is used to structure the raw data into a **JSON response** that's useful for your application.
+This project allows you to extract useful data from **PDFs** or **images** using **LLMs (Large Language Models)**. With the power of **GPT-4o**, it can read visual inputs (images or PDFs), extract text, and structure it into a **JSON response** useful for your application.
 
 ---
 
 ## Features
 
-- **OCR Extraction**: Upload a PDF or image and extract raw text data using Tesseract.
-- **LLM Structuring**: Use a Large Language Model (LLM) to process the raw text and structure it into a meaningful JSON response.
+- **Vision-based Extraction**: Upload a PDF or image and extract raw text and structured data using OpenAI's GPT-4o.
+- **LLM Structuring**: Use GPT-4o or any other LLM to process the extracted text and structure it into a meaningful JSON response.
 - **API-based**: The system exposes a single API endpoint, `/ocr`, where you can upload documents or images and retrieve the extracted data.
-- **Configurable Translation Support**: You can choose your preferred language and if you want to translate the extracted data into another language or not.
+- **Configurable Translation Support**: You can choose your preferred language and whether to translate the extracted data.
 
 ---
 
@@ -30,7 +30,9 @@ This project allows you to extract useful data from **PDFs** or **images** using
 ## Prerequisites
 
 Before running the project, choose **one of the following options**:
+
 ### Option 1: Run with Docker (Recommended)
+
 1. Make sure you have **Docker** installed and running on your system.
 2. Build the Docker image:
 
@@ -44,22 +46,13 @@ Before running the project, choose **one of the following options**:
 
 ### Option 2: Manual Installation
 
-1. **Tesseract OCR**
-
-   - **Download**: [https://github.com/tesseract-ocr/tesseract](https://github.com/tesseract-ocr/tesseract)
-   - **Install**:
-     - **Windows**: Run the installer. Make sure to check the box to add Tesseract to your PATH during installation.
-     - **Linux**: `sudo apt install tesseract-ocr`
-     - **macOS**: `brew install tesseract`
-   - **Note**: After installation, you may need to **restart your IDE** so it recognizes the Tesseract path.
-
-2. **Poppler (for PDF support via pdf2image)**
+1. **Poppler (for PDF support via pdf2image)**
 
    - **Windows**: Download from [http://blog.alivate.com.au/poppler-windows/](http://blog.alivate.com.au/poppler-windows/) and add the `bin/` folder to your PATH.
    - **Linux**: `sudo apt install poppler-utils`
    - **macOS**: `brew install poppler`
 
-3. **Python Dependencies**
+2. **Python Dependencies**
 
    - Install required libraries by creating a venv then run:
 
@@ -76,17 +69,22 @@ This project uses a `.env` file for environment-based configuration.
 Create a `.env` file in the project root and define the following keys:
 
 ```env
-# LLM model to use (e.g., gpt-3.5-turbo, gpt-4, etc.)
-MODEL_NAME=gpt-3.5-turbo
+# Text-only LLM model to use (e.g., gpt-3.5-turbo, gpt-4, etc.)
+TEXT_MODEL_NAME=gpt-3.5-turbo
 
+# Vision-capable model (e.g., gpt-4o)
+VISION_MODEL_NAME=gpt-4o
 
 # OpenAI API Key (or other LLM provider’s key)
 OPENAI_API_KEY=your_openai_api_key_here
 
 # ======= OPTIONAL: =======
 
-# LLM Temperature
-MODEL_TEMPERATURE=0
+# Text-only LLM Temperature
+TEXT_MODEL_TEMPERATURE=0
+
+# Vision-capable LLM Temperature
+VISION_MODEL_TEMPERATURE=0
 
 # Select the env: dev, prod
 ENVIRONMENT=dev

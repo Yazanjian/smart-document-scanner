@@ -7,8 +7,10 @@ class Settings(BaseSettings):
     environment: str = "dev"
     default_language: str = "en"
     enable_translation: bool = False
-    model_name: str
-    model_temperature: int = 0
+    text_model_name: str
+    text_model_temperature: int = 0
+    vision_model_name: str
+    vision_model_temperature: int = 0
     openai_api_key: str
 
 
