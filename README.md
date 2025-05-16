@@ -2,6 +2,9 @@
 
 This project allows you to extract useful data from **PDFs** or **images** using **LLMs (Large Language Models)**. With the power of **GPT-4o**, it can read visual inputs (images or PDFs), extract text, and structure it into a **JSON response** useful for your application.
 
+> **Note:** If you prefer a simpler and more cost-effective approach (with slightly lower accuracy), consider switching to the `master` branch.  
+> It uses a traditional OCR-based pipeline powered by **Tesseract** and **LLMs**, which may be more suitable for straightforward documents or resource-constrained environments.
+
 ---
 
 ## Features
