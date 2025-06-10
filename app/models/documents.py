@@ -135,6 +135,62 @@ class CV(DocumentDetails):
     )
 
 
+class VehicleLicenseCard(DocumentDetails):
+    issuing_country: Optional[str] = Field(
+        default=None, description="Country that issued the vehicle license."
+    )
+    license_number: Optional[str] = Field(
+        default=None,
+        description="The official vehicle license number (Format: '00000 / Arabic Letter').",
+    )
+    plate_type: Optional[str] = Field(default=None, description="Type of license plate")
+    vehicle_type: Optional[str] = Field(
+        default=None,
+        description="Type and model of the vehicle",
+    )
+    color: Optional[str] = Field(default=None, description="Color of the vehicle")
+    brand: Optional[str] = Field(
+        default=None,
+        description="Vehicle brand",
+    )
+    model_year: Optional[int] = Field(
+        default=None, description="Vehicle model year (yyyy format)"
+    )
+    manufacturing_year: Optional[int] = Field(
+        default=None, description="Year the vehicle was manufactured (yyyy format)"
+    )
+    engine_capacity_cc: Optional[int] = Field(
+        default=None,
+        description="Engine capacity in cubic centimeters",
+    )
+    net_weight_kg: Optional[int] = Field(
+        default=None,
+        description="Net weight of the vehicle in kilograms",
+    )
+    max_payload_kg: Optional[int] = Field(
+        default=None,
+        description="Maximum payload the vehicle can carry",
+    )
+    num_cylinders: Optional[int] = Field(
+        default=None, description="Number of engine cylinders"
+    )
+    num_passengers: Optional[int] = Field(
+        default=None, description="Number of passengers allowed"
+    )
+    chassis_number: Optional[str] = Field(
+        default=None, description="Chassis or VIN number"
+    )
+    engine_number: Optional[str] = Field(default=None, description="Engine number")
+    date_of_issue: Optional[str] = Field(
+        default=None,
+        description="License issue date (YYYY-MM-DD format)",
+    )
+    date_of_expiry: Optional[str] = Field(
+        default=None,
+        description="License expiry date (YYYY-MM-DD format)",
+    )
+
+
 # Generate Enum dynamically based on subclasses of DocumentDetails
 def generate_document_type_enum():
     """Dynamically generate the DocumentTypeEnum."""
