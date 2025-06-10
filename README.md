@@ -72,8 +72,8 @@ This project uses a `.env` file for environment-based configuration.
 Create a `.env` file in the project root and define the following keys:
 
 ```env
-# Text-only LLM model to use (e.g., gpt-3.5-turbo, gpt-4, etc.)
-TEXT_MODEL_NAME=gpt-3.5-turbo
+# Text-only LLM model to use (e.g., gpt-4o-mini-2024-07-18, or gpt-4, etc.)
+TEXT_MODEL_NAME=gpt-4o-mini-2024-07-18
 
 # Vision-capable model (e.g., gpt-4o)
 VISION_MODEL_NAME=gpt-4o
